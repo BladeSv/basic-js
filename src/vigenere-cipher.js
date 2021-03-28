@@ -11,7 +11,7 @@ class VigenereCipheringMachine {
     }
     string = string.toUpperCase();
 
-    console.log("input encrypt ", string, key);
+    // console.log("input encrypt ", string, key);
     // console.log("input key", key);
     let keyArray = this.filterKey(key);
     // if (!this.direction) {
@@ -20,7 +20,7 @@ class VigenereCipheringMachine {
     // }
     // console.log("keyArray encrypt", keyArray);
     const result = this.crypt(string, keyArray);
-    console.log("crypt result", result);
+    // console.log("crypt result", result);
     return result;
   }
 
@@ -29,7 +29,7 @@ class VigenereCipheringMachine {
       throw new Error();
     }
     string = string.toUpperCase();
-    console.log("input decrypt ", string, key);
+    // console.log("input decrypt ", string, key);
     let keyArray = this.filterKey(key);
 
     for (let i = 0; i < keyArray.length; i++)
@@ -71,8 +71,8 @@ class VigenereCipheringMachine {
       let c = string.charCodeAt(i);
       if (65 <= c && c <= 90) {
         let symbolKey = key[j % key.length];
-        console.log("1111direction", this);
-        console.log("symbolKey", symbolKey);
+        // console.log("1111direction", this);
+        // console.log("symbolKey", symbolKey);
         let symbol = String.fromCharCode(((c - 65 + symbolKey) % 26) + 65);
         // let symbol = this.direction
         //   ? String.fromCharCode(((c - 65 + symbolKey) % 26) + 65)

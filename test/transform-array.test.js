@@ -1212,48 +1212,48 @@ describe("Transform array", () => {
 
   //Functional requirements
   describe("functional requirements", () => {
-    it.optional("correctly works with an empty array", () => {
-      assert.deepStrictEqual(transform([]), []);
-    });
+    // it.optional("correctly works with an empty array", () => {
+    //   assert.deepStrictEqual(transform([]), []);
+    // });
 
-    it.optional("throws an Error if arr is not an Array", function () {
-      let res = null;
-      try {
-        transform(3);
-        transform(3.312312);
-        transform(false);
-        transform(null);
-        transform(undefined);
-        transform({ foo: "bar" });
-      } catch (err) {
-        if (err._validationProp === "NA") {
-          this.skip();
-        } else {
-          res = "THROWN";
-        }
-      }
-      assert.equal(res, "THROWN");
-    });
+    // it.optional("throws an Error if arr is not an Array", function () {
+    //   let res = null;
+    //   try {
+    //     transform(3);
+    //     transform(3.312312);
+    //     transform(false);
+    //     transform(null);
+    //     transform(undefined);
+    //     transform({ foo: "bar" });
+    //   } catch (err) {
+    //     if (err._validationProp === "NA") {
+    //       this.skip();
+    //     } else {
+    //       res = "THROWN";
+    //     }
+    //   }
+    //   assert.equal(res, "THROWN");
+    // });
 
-    it.optional("doesn't affect simple arrays", () => {
-      for (let i = 0; i < 50; i += 1) {
-        const randArr = createSimpleArr(50);
-        assert.deepStrictEqual(transform(randArr), randArr);
-      }
-    });
+    // it.optional("doesn't affect simple arrays", () => {
+    //   for (let i = 0; i < 50; i += 1) {
+    //     const randArr = createSimpleArr(50);
+    //     assert.deepStrictEqual(transform(randArr), randArr);
+    //   }
+    // });
 
-    it.optional("basic sequence interactions work well", () => {
-      const cases = [
-        ["--discard-prev", 1, 2, 3],
-        ["--double-prev", 1, 2, 3],
-        [1, 2, 3, "--double-next"],
-        [1, 2, 3, "--discard-next"],
-      ];
+    // it.optional("basic sequence interactions work well", () => {
+    //   const cases = [
+    //     ["--discard-prev", 1, 2, 3],
+    //     ["--double-prev", 1, 2, 3],
+    //     [1, 2, 3, "--double-next"],
+    //     [1, 2, 3, "--discard-next"],
+    //   ];
 
-      cases.forEach((currCase) => {
-        assert.deepStrictEqual(transform(currCase), [1, 2, 3]);
-      });
-    });
+    //   cases.forEach((currCase) => {
+    //     assert.deepStrictEqual(transform(currCase), [1, 2, 3]);
+    //   });
+    // });
 
     it.optional("advanced sequence interactions work well", () => {
       const cases = {

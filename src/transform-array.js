@@ -9,38 +9,47 @@ module.exports = function transform(arr) {
     switch (worlArr[i]) {
       case "--discard-next":
         if (i < worlArr.length - 1) {
-          worlArr.splice(i, 2);
-          i--;
-        } else {
-          worlArr.splice(i, 1);
+          worlArr.splice(i + 1, 2);
         }
+        //  else {
+        //   worlArr.splice(i, 1);
+        // }
         break;
       case "--discard-prev":
         if (i > 0) {
-          worlArr.splice(i - 1, 2);
-        } else {
-          worlArr.splice(i, 1);
-          i--;
+          worlArr.splice(i - 1, 1);
         }
+        //  else {
+        //   worlArr.splice(i, 1);
+        //   i--;
+        // }
         break;
       case "--double-next":
         if (i < worlArr.length - 1) {
           worlArr.splice(i, 1, worlArr[i + 1]);
-        } else {
-          worlArr.splice(i, 1);
         }
+        //  else {
+        //   worlArr.splice(i, 1);
+        // }
         break;
 
       case "--double-prev":
         if (i > 0) {
           worlArr.splice(i, 1, worlArr[i - 1]);
-        } else {
-          worlArr.splice(i, 1);
-          i--;
         }
+        //  else {
+        //   worlArr.splice(i, 1);
+        //   i--;
+        // }
         break;
     }
   }
 
-  return worlArr;
+  return worlArr.filter(
+    (el) =>
+      el !== "--double-prev" &&
+      el !== "--double-next" &&
+      el !== "--discard-prev" &&
+      el !== "--discard-next"
+  );
 };

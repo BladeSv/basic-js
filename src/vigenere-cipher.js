@@ -74,9 +74,6 @@ class VigenereCipheringMachine {
         // console.log("1111direction", this);
         // console.log("symbolKey", symbolKey);
         let symbol = String.fromCharCode(((c - 65 + symbolKey) % 26) + 65);
-        // let symbol = this.direction
-        //   ? String.fromCharCode(((c - 65 + symbolKey) % 26) + 65)
-        //   : String.fromCharCode(c - 65 - symbolKey + 25 + 65);
 
         // console.log("1111symbol", symbol);
         output += symbol;
